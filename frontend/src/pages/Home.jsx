@@ -12,6 +12,8 @@ import {
   Clock,
   Instagram,
   CheckCircle,
+  ChevronDown,
+  ChevronUp,
 } from 'lucide-react';
 import FloralDivider from '../components/FloralDivider';
 import Lightbox from '../components/Lightbox';
@@ -27,6 +29,9 @@ const Home = () => {
   // Lightbox state for portfolio preview
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState(0);
+
+  // Reviews toggle state (show top 3 by default)
+  const [showAllReviews, setShowAllReviews] = useState(false);
 
   useEffect(() => {
     fetchHomeData();
@@ -373,14 +378,17 @@ const Home = () => {
           </div>
 
           <div className="testimonials-grid">
-            {(content?.testimonials || []).map((t, i) => (
+            {(showAllReviews
+              ? content?.testimonials || []
+              : (content?.testimonials || []).slice(0, 3)
+            ).map((t, i) => (
               <motion.div
                 key={t.id || i}
                 className="testimonial-card"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.15 }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
               >
                 <div className="testimonial-stars">
                   {[...Array(t.rating || 5)].map((_, starIdx) => (
@@ -418,8 +426,33 @@ const Home = () => {
             ))}
           </div>
 
+          {/* Toggle View All Reviews Button */}
+          {(content?.testimonials || []).length > 3 && (
+            <div style={{ textAlign: 'center', marginTop: '2.25rem' }}>
+              <button
+                type="button"
+                onClick={() => setShowAllReviews(!showAllReviews)}
+                className="btn btn-outline"
+                style={{
+                  padding: '0.75rem 2.25rem',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.55rem',
+                  cursor: 'pointer',
+                }}
+              >
+                <span>
+                  {showAllReviews
+                    ? 'Show Less'
+                    : `View All Reviews (${(content?.testimonials || []).length})`}
+                </span>
+                {showAllReviews ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              </button>
+            </div>
+          )}
+
           {/* Feedback & Review Callout */}
-          <div style={{ textAlign: 'center', marginTop: '3.5rem' }}>
+          <div style={{ textAlign: 'center', marginTop: '2.5rem' }}>
             <Link to="/feedback" className="btn btn-secondary" style={{ padding: '0.85rem 2rem' }}>
               <Star size={16} fill="currentColor" color="var(--color-champagne-gold)" />
               <span>Were You A Glowroot Bride? Leave Your Review</span>
