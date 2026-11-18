@@ -80,7 +80,12 @@ const Feedback = () => {
         setToastType('error');
       }
     } catch (err) {
-      setToastMessage('Could not submit review. Please try again.');
+      console.error('Feedback submit error:', err);
+      const msg =
+        err.response?.data?.message ||
+        err.message ||
+        'Could not submit review. Please try again.';
+      setToastMessage(msg);
       setToastType('error');
     } finally {
       setSubmitting(false);
