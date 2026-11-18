@@ -1,0 +1,47 @@
+:root {
+  /* Luxury Palette */
+  --color-ivory: #FDFBF7;
+  --color-ivory-light: #FFFFFF;
+  --color-cream: #F8F5EE;
+  --color-cream-dark: #EFE9DC;
+  
+  --color-dusty-rose: #C68B82;
+  --color-dusty-rose-light: #E8C5BE;
+  --color-dusty-rose-soft: #F6ECE9;
+  
+  --color-powder-blue: #EBF1F7;
+  --color-powder-blue-light: #F4F7FB;
+  --color-powder-blue-dark: #8EABC3;
+  
+  --color-champagne-gold: #C5A059;
+  --color-gold-light: #E6CA65;
+  --color-gold-dim: #D4AF37;
+  --color-gold-subtle: rgba(197, 160, 89, 0.22);
+  --color-gold-border: rgba(197, 160, 89, 0.35);
+
+  --color-text-primary: #2C2623;
+  --color-text-secondary: #655C56;
+  --color-text-muted: #958B84;
+  --color-text-light: #B4ABA5;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-serif-accent: 'Cormorant Garamond', Garamond, serif;
+  --font-body: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  /* Luxury Elements */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 30px;
+  --radius-pill: 9999px;
+
+  --shadow-subtle: 0 4px 20px rgba(120, 90, 75, 0.05);
+  --shadow-card: 0 10px 30px rgba(120, 90, 75, 0.08);
+  --shadow-hover: 0 16px 40px rgba(120, 90, 75, 0.12);
+  --shadow-gold: 0 8px 24px rgba(197, 160, 89, 0.22);
+
+  --transition-smooth: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-fast: all 0.2s ease;
+}

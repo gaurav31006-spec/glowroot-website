@@ -1,0 +1,218 @@
+.services-hero {
+  padding: 120px 0 50px 0;
+  background: linear-gradient(180deg, var(--color-cream) 0%, var(--color-ivory) 100%);
+  text-align: center;
+}
+
+.services-catalog {
+  padding: 4rem 0 6rem 0;
+}
+
+.services-full-list {
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+}
+
+.service-feature-card {
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  background: #FFFFFF;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-gold-border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.service-feature-card:hover {
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-champagne-gold);
+}
+
+.service-feature-card.reverse {
+  grid-template-columns: 1.25fr 1fr;
+}
+
+.service-feature-card.reverse .service-feature-img-wrap {
+  order: 2;
+}
+
+.service-feature-img-wrap {
+  position: relative;
+  overflow: hidden;
+  min-height: 380px;
+}
+
+.service-feature-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s ease;
+}
+
+.service-feature-card:hover .service-feature-img-wrap img {
+  transform: scale(1.04);
+}
+
+.service-feature-body {
+  padding: 3rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.service-badge-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.service-feature-title {
+  font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+  font-family: var(--font-heading);
+  color: var(--color-text-primary);
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.service-feature-desc {
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.service-includes-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-primary);
+  margin-bottom: 0.85rem;
+}
+
+.service-includes-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.service-includes-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.88rem;
+  color: var(--color-text-secondary);
+}
+
+.service-includes-item svg {
+  color: var(--color-champagne-gold);
+  flex-shrink: 0;
+}
+
+.service-action-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.service-price-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-price-tag {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-muted);
+}
+
+.service-price-num {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--color-champagne-gold);
+}
+
+.service-duration-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 960px) {
+  .services-hero {
+    padding: 95px 0 35px 0;
+  }
+
+  .services-catalog {
+    padding: 3rem 0 4.5rem 0;
+  }
+
+  .service-feature-card,
+  .service-feature-card.reverse {
+    grid-template-columns: 1fr;
+  }
+
+  .service-feature-card.reverse .service-feature-img-wrap {
+    order: 1;
+  }
+
+  .service-feature-body {
+    order: 2;
+    padding: 2rem 1.5rem;
+  }
+
+  .service-feature-img-wrap {
+    min-height: 250px;
+    aspect-ratio: 16 / 10;
+  }
+
+  .service-includes-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .services-full-list {
+    gap: 2.25rem;
+  }
+
+  .service-feature-card {
+    border-radius: var(--radius-lg);
+  }
+
+  .service-feature-body {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .service-feature-desc {
+    font-size: 0.92rem;
+  }
+
+  .service-action-row {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .service-action-row .btn {
+    width: 100%;
+  }
+
+  .service-price-block {
+    align-items: center;
+  }
+}

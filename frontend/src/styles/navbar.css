@@ -1,0 +1,306 @@
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  background: rgba(253, 251, 247, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.18);
+  width: 100%;
+}
+
+.navbar-scrolled {
+  background: rgba(253, 251, 247, 0.98);
+  box-shadow: 0 4px 20px rgba(120, 90, 75, 0.08);
+  border-bottom: 1px solid rgba(197, 160, 89, 0.28);
+}
+
+.navbar-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 82px;
+  width: 100%;
+}
+
+/* Brand Logo */
+.brand-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  line-height: 1;
+  position: relative;
+}
+
+.brand-title span {
+  color: var(--color-champagne-gold);
+}
+
+.brand-sub {
+  font-family: var(--font-serif-accent);
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--color-dusty-rose);
+  font-weight: 600;
+  margin-top: 3px;
+}
+
+/* Nav Links */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-link {
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--color-text-primary);
+  position: relative;
+  padding: 0.4rem 0;
+  transition: var(--transition-fast);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-dusty-rose), var(--color-champagne-gold));
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--color-champagne-gold);
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Header Right Actions */
+.navbar-right-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.nav-cta-btn {
+  padding: 0.6rem 1.4rem;
+  font-size: 0.88rem;
+  border-radius: var(--radius-pill);
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.desktop-btn-text {
+  display: inline;
+}
+
+.mobile-btn-text {
+  display: none;
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--color-text-primary);
+  cursor: pointer;
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.mobile-toggle:hover {
+  background: rgba(197, 160, 89, 0.1);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  display: none;
+}
+
+/* Responsive Rules for Mobile and Tablets */
+@media (max-width: 960px) {
+  .nav-menu {
+    display: none;
+  }
+
+  .navbar-container {
+    height: 66px;
+  }
+
+  .brand-title {
+    font-size: 1.45rem;
+  }
+
+  .brand-sub {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+  }
+
+  .navbar-right-actions {
+    gap: 0.5rem;
+  }
+
+  /* Sleek, delicate compact button on mobile header */
+  .desktop-btn-text {
+    display: none;
+  }
+
+  .mobile-btn-text {
+    display: inline;
+  }
+
+  .nav-cta-btn {
+    padding: 0.35rem 0.85rem;
+    font-size: 0.78rem;
+    min-height: 34px;
+    gap: 0.35rem;
+    letter-spacing: 0.02em;
+    box-shadow: 0 2px 10px rgba(197, 160, 89, 0.28);
+  }
+
+  .nav-btn-icon {
+    width: 12px;
+    height: 12px;
+  }
+
+  .mobile-toggle {
+    display: flex;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+  }
+
+  .mobile-drawer {
+    display: block;
+    position: fixed;
+    top: 66px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: #FDFBF7;
+    border-bottom: 1px solid var(--color-gold-border);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 1.25rem 2rem 1.25rem;
+    max-height: calc(100vh - 66px);
+    overflow-y: auto;
+    z-index: 1100;
+    animation: drawerSlideDown 0.25s ease-out;
+  }
+
+  @keyframes drawerSlideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .mobile-nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .mobile-nav-link {
+    font-size: 1.05rem;
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
+    display: flex;
+    align-items: center;
+    padding: 0.65rem 0.5rem;
+    min-height: 42px;
+    border-bottom: 1px solid rgba(197, 160, 89, 0.12);
+    border-radius: var(--radius-sm);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .mobile-nav-link:active,
+  .mobile-nav-link:hover {
+    background: var(--color-dusty-rose-soft);
+    color: var(--color-dusty-rose);
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-champagne-gold);
+    font-weight: 600;
+    background: var(--color-gold-subtle);
+  }
+
+  .mobile-cta-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+  }
+
+  .mobile-drawer-btn {
+    width: 100%;
+    min-height: 40px;
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+    justify-content: center;
+    border-radius: var(--radius-pill);
+  }
+}
+
+@media (max-width: 380px) {
+  .brand-title {
+    font-size: 1.25rem;
+  }
+
+  .brand-sub {
+    font-size: 0.54rem;
+    letter-spacing: 0.15em;
+  }
+
+  .nav-cta-btn {
+    padding: 0.3rem 0.65rem;
+    font-size: 0.74rem;
+    min-height: 32px;
+  }
+
+  .mobile-toggle {
+    width: 34px;
+    height: 34px;
+  }
+}
